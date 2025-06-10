@@ -28,10 +28,7 @@ const char *message = "HELLO"; // Die Nachricht, die gesendet werden soll
 #define MEDIAN_WND 7 // A median filter window size of seven should be enough to filter out most spikes
 #define MEAN_WND 7   // After filtering the spikes we don't need many samples anymore for the average
 
-#define DFPLAYER_RX 23
-#define DFPLAYER_TX 18
-#define BUZZER_PIN 15
-#define RESET_PIN 13
+
 
 #ifdef awtrix2_upgrade
 // Pinouts für das WEMOS_D1_MINI32-Environment
@@ -44,13 +41,19 @@ const char *message = "HELLO"; // Die Nachricht, die gesendet werden soll
 #define I2C_SDA_PIN D3
 #elif ESP32_S3
 #define BATTERY_PIN 4
-#define BUZZER_PIN 5
-#define LDR_PIN 6
-#define BUTTON_UP_PIN 7
-#define BUTTON_DOWN_PIN 8
-#define BUTTON_SELECT_PIN 10
-#define I2C_SCL_PIN 10
-#define I2C_SDA_PIN 11
+#define DFPLAYER_RX 5
+#define DFPLAYER_TX 6
+#define BUZZER_PIN 7
+#define RESET_PIN 8
+
+#define LDR_PIN 10
+#define I2C_SCL_PIN 11
+#define I2C_SDA_PIN 12
+
+#define BUTTON_UP_PIN 15
+#define BUTTON_DOWN_PIN 16
+#define BUTTON_SELECT_PIN 17
+
 #else
 // Pinouts für das ULANZI-Environment
 #define BATTERY_PIN 34

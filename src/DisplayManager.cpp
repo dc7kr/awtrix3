@@ -22,6 +22,7 @@
 #include <HTTPClient.h>
 #include "base64.hpp"
 #include "Games/GameManager.h"
+#include <colorutils.h>
 
 unsigned long lastArtnetStatusTime = 0;
 const int numberOfChannels = 256 * 3;
@@ -37,7 +38,7 @@ int previousDataLength = 0;
 #ifdef awtrix2_upgrade
 #define MATRIX_PIN D2
 #else
-#define MATRIX_PIN 32
+#define MATRIX_PIN 9
 #endif
 
 #define MATRIX_WIDTH 32
@@ -1963,7 +1964,7 @@ void DisplayManager_::gammaCorrection()
   memcpy(ledsCopy, leds, sizeof(leds));
   for (int i = 0; i < 256; i++)
   {
-    leds[i] = applyGamma_video(leds[i], gamma);
+    leds[i] = fl::applyGamma_video(leds[i], gamma, gamma, gamma);
   }
 
   if (MIRROR_DISPLAY)
